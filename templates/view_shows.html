@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename ='tables.css')}}">
+    <title>Shows Editor</title>
+</head>
+<body>
+    <header>
+        <button class="logout">   <a href="/logout">Logout</a>     </button>
+        <button class="logout"><a href="/homeadmin">Home</a></button>
+    </header>
+    
+    <h1>List of all Shows of {{venue_id}}</h1>
+    <table>
+        <tr>
+            <th>SNo</th>
+            <th>Show Name</th>
+            <th>Show Rating</th>
+            <th>Tags</th>
+            <th>Ticket Price</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            {% for one in all %}
+            <tr>
+                <td> {{one['show_id']}} </td>
+                <td> {{one['show_name']}} </td>
+                <td> {{one['show_rating']}} </td>
+                <td> {{one['show_tags']}} </td>
+                <td> {{one['ticket_price']}} </td>
+                <td>
+                    <a href="/show/update/{{one['show_id']}}">Edit</a> ||
+                    <a href="/show/delete/{{one['show_id']}}">Delete</a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tr>
+    </table>
+    <footer>
+        <a href="/venue/create"> Add a Venue</a>
+        <a href="/show/create"> Add a Show</a>
+        <a href="/venue/view">View all Venues</a>
+    </footer>
+</body>
+</html>

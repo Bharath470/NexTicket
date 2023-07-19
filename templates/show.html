@@ -1,0 +1,43 @@
+<!-- class show(db.Model):
+    show_id = db.Column(db.Integer, primary_key = True)
+    show_name = db.Column(db.String, nullable = False)
+    show_rating = db.Column(db.Float, nullable = False)
+    show_tags =  db.Column(db.String, nullable = False)
+    ticket_price = db.Column(db.Integer, nullable = False)
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show details</title>
+    <link rel="stylesheet" href="{{url_for('static',filename ='styles.css')}}">
+ </head>
+ <body>
+    <h1>Add Show Details</h1>
+    <div>
+    <form method="post" action="/show/create">
+        <label for="s_name"> Show Name : </label>
+        <input name="s_name" type="text" required>
+        <label for="s_rating"> Show Rating : </label>
+        <input name="s_rating" type="text" required>
+        <label for="s_tags"> Show tags : </label>
+        <input name="s_tags" type="text">
+        <label for="s_price"> Ticket Price : </label>
+        <input name="s_price" type="number" required>
+        <label for="v_id">Select Venue: </label>
+         <select name="v_id" required>
+            {% for one in vens%}
+            <option value="{{one['venue_id']}}">{{one['venue_name']}}</option>
+            {% endfor %}
+         </select>
+        <a href="/homeadmin">Cancel</a>
+        <br>
+        <input type="submit">
+        
+    </form>
+   </div>
+ </body>
+ </html>

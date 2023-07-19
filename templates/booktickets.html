@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking</title>
+    <link rel="stylesheet" href="{{url_for('static',filename ='styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename ='tables.css')}}">
+
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+h1, h3 {
+  font-weight: bold;
+  margin: 0;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="number"] {
+  width: 50px;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f44336;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <button class="logout"><a href="/logout">Logout</a></button>
+        <button class="logout" > <a href="/userbookings">My Bookings</a></button>
+        <button class="logout" > <a href="/userhome">Home Menu</a></button>
+        
+    </header>
+    <div style="align-self: center; margin-top: 50px ; width: fit-content; ">
+    <h3>Ticket booking for <strong>{{show.show_name}}</strong> in <strong>{{ven.venue_name}}</strong></h3><br>
+    <h3><strong>No of seats available to book</strong>: {{no_avail_seats}}</h3>
+    <br>
+    <h3><strong>Ticket Price:</strong> {{show.ticket_price}}</h3><br>
+    {% if no_avail_seats == 0 %}
+                <p>Please select another show, no seats available for {{show.show_name}}</p>
+    {% else %}
+            <form method="post" action="/shows/book/{{show['show_id']}}">
+                <h3><label for="no_seats">Enter number of seats:</label></h3>
+                <center><input type="number" name="no_seats" min="1" max="{{no_avail_seats}}"> </center>
+                <br>
+                <input type="submit" style="width: 30%; align-self: center;" value="BOOK"> 
+            </form>
+    {%endif%}
+        </div>
+</body>
+</html>

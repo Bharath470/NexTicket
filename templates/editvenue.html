@@ -1,0 +1,35 @@
+<!-- venue_id = db.Column(db.Integer, primary_key = True)
+venue_name = db.Column(db.String, nullable = False)
+venue_place = db.Column(db.String, nullable = False)
+venue_cap =  db.Column(db.Integer, nullable = False)
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename ='tables.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename ='styles.css')}}">
+    <title>Document</title>
+ </head>
+ <body>
+   <div style="margin-top: 50px;">
+    <h1>Update Venue Details</h1>
+    <form method = 'post' action="/venue/update/{{venue.venue_id}}">
+        <label for="v1_name"> Venue Name : </label>
+        <input name="v1_name" type="text" value="{{venue.venue_name}}">
+        <br><br>
+        <label for="v1_place"> Venue Place : </label>
+        <input name="v1_place" type="text" value="{{venue.venue_place}}">
+        <br><br>
+        <label for="v1_cap"> Venue Capacity : </label>
+        <input name="v1_cap" type="number" value="{{venue.venue_cap}}">
+        <br><br>
+         <a href="/venue/view">Cancel</a></button>
+        <input type="submit">
+    </form>
+   </div>
+ </body>
+ </html>

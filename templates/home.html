@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home Page</title>
+    <style>
+        body {
+  background-image: url("{{url_for('static',filename ='theater.jpg')}}");
+  background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+}
+
+button {
+  background-color: #ffbf00a3;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+ol {
+  margin-top: 50px;
+  list-style-type: none;
+  text-align: center;
+}
+
+li {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.logout{
+    position: absolute;
+            top: 10px;
+            right: 10px;
+}
+
+    </style>
+
+</head>
+<body>
+    <h1><center> Home page for ADMIN in NexTicket </center></h1>
+    <button class="logout"><a href="/logout">Logout</a></button>
+    <ol>
+        <li>
+            <h3><a href="/venue/create">Add a Venue </a></h3>
+        </li>
+        <li>
+            <h3> <a href="/show/create"> Add a Show</a></h3>
+        </li>
+        <li>
+            <h3> <a href="/venue/view">View all Venues</a></h3>
+        </li>
+    </ol>
+
+    
+</body>
+</html>

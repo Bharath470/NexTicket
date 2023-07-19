@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets booked</title>
+    <link rel="stylesheet" href="{{url_for('static',filename ='styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename ='tables.css')}}">
+</head>
+<body>
+            <header><button class="logout"><a href="/logout">Logout</a></button></header>
+            <div style="align-self: center; margin-top: 50px ; width: fit-content; ">
+                
+                <h1 >Yay! Tickets booked</h1>
+                <h3>Ticket Details</h3>
+                <p><b>Venue Name:</b> {{ven.venue_name}}</p>  
+                <p><b>Show Name:</b> {{show.show_name}}</p>
+                <p><b>Number Of Seats:</b> {{no_seats}}</p>
+                <p><b>Total Price:</b> {{total_price}}</p>
+            </div>
+            <footer><a href="{{url_for('userhome')}}">Userhome</a></footer>
+</body>
+</html>

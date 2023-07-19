@@ -1,0 +1,47 @@
+<!-- class show(db.Model):
+    show_id = db.Column(db.Integer, primary_key = True)
+    show_name = db.Column(db.String, nullable = False)
+    show_rating = db.Column(db.Float, nullable = False)
+    show_tags =  db.Column(db.String, nullable = False)
+    ticket_price = db.Column(db.Integer, nullable = False)
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show details</title>
+    <link rel="stylesheet" href="{{url_for('static',filename ='tables.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename ='styles.css')}}">
+ </head>
+ <body>
+   <div style="margin-top: 50px;">
+    <h1>Update Show Details</h1>
+    <form method="post" action="/show/update/{{show.show_id}}">
+        <label for="s1_name"> Show Name : </label>
+        <input name="s1_name" type="text" value="{{show.show_name}}">
+        <br><br>
+        <label for="s1_rating"> Show Rating : </label>
+        <input name="s1_rating" type="text" value="{{show.show_rating}}">
+        <br><br>
+        <label for="s1_tags"> Show tags : </label>
+        <input name="s1_tags" type="text" value="{{show.show_tags}}">
+        <br><br>
+        <label for="s1_price"> Ticket Price : </label>
+        <input name="s1_price" type="number" value="{{show.ticket_price}}">
+        <br><br>
+        <!-- <label for="v1_id">Select Venue: </label><br><br>
+         <select name="v1_id" >
+            {% for one in vens%}
+            <option value="{{one['venue_id']}}">{{one['venue_name']}}</option>
+            {% endfor %}
+         </select>
+        <br><br> -->
+        <a href="/show/view/{{show.venue_id}}">Cancel</a>
+        <input type="submit">
+    </form>
+    </div>
+ </body>
+ </html>

@@ -1,0 +1,48 @@
+<!-- class Booking(db.Model):
+    booking_id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer,db.ForeignKey('user.user_id'),nullable = False)
+    show_id = db.Column(db.Integer,db.ForeignKey('show.show_id'),nullable = False)
+    venue_id = db.Column(db.Integer,db.ForeignKey('venue.venue_id'),nullable = False)
+    no_seats = db.Column(db.Integer, nullable = False)
+    total_price = db.Column(db.Integer, nullable = False)
+
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Bookings</title>
+    <link rel="stylesheet" href="{{url_for('static',filename ='styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename ='tables.css')}}">
+</head>
+<body>
+    <header>
+        <button class="logout"><a href="/logout">Logout</a></button>
+        <button class="logout" > <a href="/userhome">Home Menu</a></button>
+        
+    </header>
+    <h1>Your Bookings</h1>
+    <table>
+        <tr>
+            <th>Booking Id</th>
+            <th>Show Name</th>
+            <th>Venue Name</th>
+            <th>No Seats</th>
+            <th>Total Price</th>
+        </tr>
+        {% for booking in userbookings %}
+        <tr>
+            <td>{{booking.booking_id}}</td>
+            <td>{{dict_shows[booking.show_id]}}</td>
+            <td>{{dict_venues[booking.venue_id]}}</td>
+            <td>{{booking.no_seats}}</td>
+            <td>{{booking.total_price}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

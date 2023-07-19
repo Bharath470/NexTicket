@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Viewer</title>
+    <link rel="stylesheet" href="{{url_for('static',filename ='styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename ='tables.css')}}">
+    <style>
+        .search {
+  display: inline-block;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <button class="logout"><a href="/logout">Logout</a></button>
+        <button class="logout" > <a href="/userbookings">My Bookings</a></button>
+        <button class="logout" > <a href="/userhome">Home Menu</a></button>
+        
+    </header>
+    
+    <h1>Shows available for {{venue.venue_name}}</h1>
+    <form action="/searchshows/{{venue.venue_id}}" method="post">
+        <label for="search">Search shows:</label>
+        <input type="text" name="search" class="search">
+        <input type="submit" value="search" class="search" style="width: 10%;"></input>
+    </form>
+    {% if shows | length == 0%}
+        <h3>No shows Available</h3>
+    {% else %}
+    <table>
+        <tr>
+            <th>SNo</th>
+            <th>Show Name</th>
+            <th>Show Rating</th>
+            <th>Tags</th>
+            <th>Ticket Price</th>
+            <th>Actions</th>
+        </tr>
+        {% for show in shows%}
+        
+        
+            <tr>
+                <td> {{show['show_id']}} </td>
+                <td> {{show['show_name']}} </td>
+                <td> {{show['show_rating']}} </td>
+                <td> {{show['show_tags']}} </td>
+                <td> {{show['ticket_price']}} </td>
+                <td>
+                    <button><a href="/shows/book/{{show['show_id']}}">Book Tickets</a></button>
+                </td>
+            </tr>
+        
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

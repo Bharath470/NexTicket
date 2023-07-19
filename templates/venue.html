@@ -1,0 +1,35 @@
+<!-- venue_id = db.Column(db.Integer, primary_key = True)
+venue_name = db.Column(db.String, nullable = False)
+venue_place = db.Column(db.String, nullable = False)
+venue_cap =  db.Column(db.Integer, nullable = False)
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Venue</title>
+    <link rel="stylesheet" href="{{url_for('static',filename ='styles.css')}}">
+   </head>
+
+ <body>
+    <h1>Add Venue Details</h1>
+    <div>
+    <form method = 'post' action="/venue/create">
+        <label for="v_name"> Venue Name : </label>
+        <input name="v_name" type="text" required>
+        <br><br>
+        <label for="v_place"> Venue Place : </label>
+        <input name="v_place" type="text" required>
+        <br><br>
+        <label for="v_cap"> Venue Capacity : </label>
+        <input name="v_cap" type="number" required>
+        <h4><a href="/homeadmin">Cancel</a></h4>
+        <br>
+        <input type="submit">
+    </form>
+   </div>
+ </body>
+ </html>

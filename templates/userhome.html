@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home Screen</title>
+    <link rel="stylesheet" href="{{url_for('static',filename ='styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename ='tables.css')}}">
+    <style>
+        form {
+  display: flex;
+  align-items: center;
+}
+
+input[type="submit"] {
+  margin-left: 10px;
+}
+
+.search {
+  display: inline-block;
+}
+
+.bookings{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.bookings:hover {
+  background-color: #3e8e41;
+}
+
+    </style>
+</head>
+
+
+
+
+<body>
+    <header>
+        <button class="logout"><a href="/logout">Logout</a></button>
+        <button class="logout" > <a href="/userbookings">My Bookings</a></button>
+        
+    </header>
+    <h1> NexTicket</h1>
+    <h3 style="text-align: center;">Hola {{session['username']}} !</h3>
+    <form action="/searchvenue" style="align-items: center;" method="post">
+        <label for="search" >Search Venues:</label>
+        <input type="text" name="search" class="search" >
+        <input type="submit" value="search" style="width: 10%;" class="search" ></input>
+    </form>
+    </body>
+    <h1>View Venues</h1>
+    <table>
+        <tr>
+            <th>SNo</th>
+            <th>Venue Name</th>
+            <th>Venue Place</th>
+            <th>Shows</th>
+        </tr>
+        <tr>
+            {% for one in all %}
+            <tr>
+                <td> {{one['venue_id']}} </td>
+                <td> {{one['venue_name']}} </td>
+                <td> {{one['venue_place']}} </td>
+                <td>
+                   <button> <a href="/shows/view/{{one['venue_id']}}">View shows</a> </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tr>
+    </table>
+</body>
+</html>

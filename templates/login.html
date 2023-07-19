@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{{url_for('static',filename ='styles.css')}}"> -->
+    <title>LOGIN </title>
+    <style>
+        body {
+            background-image: url("{{url_for('static',filename ='theater.jpg')}}");
+    background-size: cover;
+    background-position: center;
+}
+
+h1 {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.btn {
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  font-family: Georgia;
+  color: #ff9d00;
+  font-style: bold;
+  font-size: 20px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #ff9d00;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+    </style>
+</head>
+
+
+
+<body>
+    <h1><center>NexTicket</center></h1>
+    <div>
+    <center>
+        <button class="btn"><a style="text-decoration: none" href="{{url_for('adminlogin')}}">ADMIN LOGIN</a></button>
+        <button class="btn"><a style="text-decoration: none" href="{{url_for('userlogin')}}">USER LOGIN </a></button>
+    </center>
+    </div>
+</body>
+</html>

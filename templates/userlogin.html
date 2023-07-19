@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login Page</title>
+    <link rel="stylesheet" href="{{url_for('static',filename ='styles.css')}}">
+</head>
+<body>
+    <h1>User Login Page</h1>
+    <div>
+        <form action="/userlogin" method="post">
+            <label for="uname">Enter Username</label><br>
+            <input type="text" name="uname"><br>
+            <label for="pword">Enter Password</label><br>
+            <input type="password" name="pword"><br>
+            <input type="submit" value="Login">
+            <span></span>
+            <a href="{{url_for('user_reg')}}">Don't have an account? <span style="color: rgb(255, 0, 0);">Sign Up </span></a>
+        </form>
+    </div>
+</body>
+</html>
