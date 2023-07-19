@@ -6,5 +6,5 @@
 + install the following
     - install python 
     - pip install flask
-    - pip install flask_sql_alchemy
+    - pip install flask_sqlalchemy
 + enter "flask run" command and follow the link
